@@ -1,0 +1,22 @@
+<?page title="Seleccione una opcion" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Seleccione una opcion" width="21%" height="38%" border="normal" closable="true" id="winReportes" apply="com.TiendaVirtual.controladores.Submenues.SubReportesControlador">
+
+
+
+<grid>
+			<rows>
+	
+				<row>
+					<button label="Reporte General" image="Imagenes/general.png"  width="80px" id="buttonRepGeneral"  />
+					<button label="Clientes Frecuentes" image="Imagenes/usuario.png" width="80px" id="buttonRepCliente"  />
+				</row>
+			
+				<row>					
+					<button label="Demanda de Productos" image="Imagenes/prod.png" width="80px" id="buttonRepProductos" />
+					<button label="Demanda de Categorías" image="Imagenes/cat.png" width="80px" id="buttonRepCategorias" />
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

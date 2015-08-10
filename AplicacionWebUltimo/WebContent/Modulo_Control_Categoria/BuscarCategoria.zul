@@ -1,0 +1,39 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="win_buscat" title="Buscar Categorias" border="normal" closable="true" apply="com.TiendaVirtual.controladores.BuscarCatConttrolador">
+	
+	<toolbar>
+
+</toolbar>
+	
+	<groupbox closable="true">
+		<caption label="Busqueda"></caption>
+		<label>Categoria: </label><textbox id="textboxBuscar"></textbox>
+		
+		<space/>
+		<button image="/Imagenes/searchs.png" id="buttonBuscar" label="Buscar">
+		</button>
+		<space/>
+		<button  image="/Imagenes/icon_listat.png" id="buttonBusca" label="Listar Todo">
+		</button>
+		<space/>
+	</groupbox>
+	<listbox id="listboxCategorias" mold="paging" pageSize="5" width="100%" emptyMessage="No existen datos" >
+		<listhead sizable="true" menupopup="auto">
+		<listheader label="Nombre" sort="auto(nom_categoria)"/>
+			<listheader label="Descripcion" sort="auto(descripcion)"/>
+			
+			</listhead>
+		
+			<template name="model"> 
+			<listitem value="${each}">
+				<listcell label="${each.nom_categoria}" />
+				<listcell label="${each.descripcion}" />
+				
+			</listitem>
+		</template>
+		
+	</listbox>
+  	
+</window>
+</zk>

@@ -1,0 +1,47 @@
+<?page title="Lista de Pedidos" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Lista de Pedidos" id="win_listaPedidos" border="normal" closable="true" apply="com.TiendaVirtual.controladores.ListaPedidosControlador">
+	
+	<groupbox closable="true">
+		<caption label="Busqueda"></caption>
+		<space/>
+	
+		<label>Estado Pedido: </label><combobox  autocomplete="true" id="cmb_estadopedido"><comboitem label="Pendiente"/><comboitem label="Realizado"/><comboitem label="Rechazado"/></combobox>		
+		<space/>
+		<label>Fecha Pedido: </label><datebox id="dateboxBuscarfecha" format="yyyy--dd"/>
+		<space/>
+		<button image="/Imagenes/searchs.png" id="buttonBuscar" label="Buscar">
+		</button>
+		<space/>		
+		<button  image="/Imagenes/icon_listat.png" id="buttonBusca" label="Listar Todo">
+		</button>
+		<space/>
+	</groupbox>
+	<listbox id="listboxPedidos" mold="paging" pageSize="5" width="100%" emptyMessage="No existen datos" >
+		<listhead sizable="true" menupopup="auto">
+		<listheader label="Nombres" sort="auto(usuario.persona.nombres)"/>
+		<listheader label="Apellidos" sort="auto(usuario.persona.apellidos)"/>
+		<listheader label="Cedula" sort="auto(usuario.persona.cedula)"/>
+		<listheader label="Fecha" sort="auto(fecha)"/>
+		<listheader label="Subtotal" sort="auto(subtotal)"/>
+		<listheader label="Total Iva" sort="auto(total_iva)"/>
+		<listheader label="Total" sort="auto(total)"/>
+		<listheader label="Estado" sort="auto(estado_pedido)"/>	
+		</listhead>
+		
+			<template name="model"> 
+			<listitem value="${each}">
+				<listcell label="${each.usuario.persona.nombres}" />
+				<listcell label="${each.usuario.persona.apellidos}" />
+				<listcell label="${each.usuario.persona.cedula}" />
+				<listcell label="${each.fecha}" />
+				<listcell label="${each.subtotal}" />
+				<listcell label="${each.total-iva}" />
+				<listcell label="${each.total}" />
+				<listcell label="${each.estado_pedido}" />
+			</listitem>
+		</template>
+		
+	</listbox>
+</window>
+</zk>

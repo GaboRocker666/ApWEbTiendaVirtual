@@ -1,0 +1,46 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Categorias" border="normal" id="win_listaCategorias" closable="true" apply="com.TiendaVirtual.controladores.ListaCategoriasControlador">
+	
+	<toolbar>
+<toolbarbutton image="/Imagenes/add.png" id="toolbarButtonNuevo" tooltip="nuevo"/>
+<toolbarbutton image="/Imagenes/edit.png" id="toolbarButtonEditar" tooltip="editar"/>
+<toolbarbutton image="/Imagenes/delete.png" id="toolbarButtonEliminacion" tooltip="eliminar"/>
+
+</toolbar>
+	
+	<groupbox closable="true">
+		<caption label="Busqueda"></caption>
+		<label>Categoria: </label><textbox id="textboxBuscar"></textbox>
+		
+		<space/>
+		<button image="/Imagenes/searchs.png" id="buttonBuscar" label="Buscar">
+		</button>
+		<space/>
+		<button  image="/Imagenes/icon_listat.png" id="buttonBusca" label="Listar Todo">
+		</button>
+		<space/>
+	</groupbox>
+	<listbox id="listboxCategorias" mold="paging" pageSize="5" width="100%" emptyMessage="No existen datos" >
+		<listhead sizable="true" menupopup="auto">
+		<listheader label="Nombre" sort="auto(nom_categoria)"/>
+			<listheader label="Descripcion" sort="auto(descripcion)"/>
+			
+			</listhead>
+		
+			<template name="model"> 
+			<listitem value="${each}">
+				<listcell label="${each.nom_categoria}" />
+				<listcell label="${each.descripcion}" />
+				
+			</listitem>
+		</template>
+		
+	</listbox>
+  	
+  	<popup id="nuevo" width="160px"><html><![CDATA[Agregar Nueva Categoria.]]></html></popup>
+  	<popup id="editar" width="115px"><html><![CDATA[Editar Categoria.]]></html></popup>
+  	<popup id="eliminar" width="125px"><html><![CDATA[Eliminar Categoria.]]></html></popup>
+  	
+</window>
+</zk>

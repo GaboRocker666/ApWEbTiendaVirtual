@@ -1,0 +1,73 @@
+<?page title="Registro de Nuevo Producto" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Registros de Nuevo Producto" border="normal" id="winNuevoProducto" width="80%" height="93%" closable="true" apply="com.TiendaVirtual.controladores.ProductosControlador">
+<borderlayout>
+<west autoscroll="true" title="Datos del Producto" width="40%" border="normal" >
+	<grid >
+			<columns>
+				<column label="Etiqueta" />
+				<column label="Dato" />
+			</columns>
+			<rows>
+			
+			<row>
+			 <label value="Categoria:" />
+			<combobox id="cmb_Categoria" constraint="no empty" autocomplete="true" >
+			<template name="model">
+				<comboitem value="${each}" label="${each.nom_categoria}"/>						
+			</template>
+			</combobox>
+			</row>
+			
+			     <row>
+				  <label value="Nombre Producto:" />
+					<textbox id="textbox_Nombre_Producto"
+						constraint="no empty">
+					</textbox>
+				</row>
+				<row>
+					<label value="Descripción:" />
+					<textbox id="textbox_descripcion"
+						constraint="no empty">
+					</textbox>
+				</row>
+				<row id="rwSM">
+					<label value="Stock Minimo:" />
+					<textbox id="textbox_Stock_Minimo"
+						constraint="no empty">
+					</textbox>
+				</row>
+					<row id="rwSA">
+					<label value="Stock Actual:" />
+					<textbox id="textbox_Stock_Actual"
+						constraint="no empty">
+					</textbox>
+				</row>
+				<row id="rwPr">
+					<label value="Precio:        $" />
+					<textbox id="textbox_Precio"
+						constraint="no empty">
+					</textbox>
+				</row>
+				
+					<row>
+					<label value="Imagen Producto:" />
+					<button label="Seleccionar" id="buttonSeleccionar" upload="true,maxsize=300"/>
+				</row>
+				<row>
+				
+				</row>
+				<row>
+					<button label="Registrar" id="button_Registrar" />
+					<button label="Cancelar" id="button_Cancelar" />
+				</row>
+
+			</rows>
+		</grid>
+</west>
+<center id="centro" autoscroll="true">
+	<vlayout id="pics" height="99%" width="100%" style="overflow:auto" />
+</center>
+</borderlayout>
+</window>
+</zk>

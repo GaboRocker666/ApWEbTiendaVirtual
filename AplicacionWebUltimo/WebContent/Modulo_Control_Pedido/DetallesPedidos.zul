@@ -1,0 +1,59 @@
+<?page title="Detalles Pedidos" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Detalles Pedidos" border="normal" id="win_DetallesPedidos" closable="true" apply="com.TiendaVirtual.controladores.DetallePedidoControlador">
+		<grid>
+			<columns>
+				<column label="Etiqueta" />
+				<column label="" />
+				<column label="Etiqueta" />
+				<column label="" />
+			</columns>
+			<rows>
+			    <row>
+				<label value="Usuario:"/><label id="label_usuario"/>
+				<label value="Cedula: "/><label id="label_cedula"/>				  
+				</row>
+				<row>
+				<label value="Fecha"/><label id="label_fecha"/>
+				<label value="Subtotal:"/><label id="label_subtotal"/>				
+				</row>
+				<row>
+				<label value="Iva:"/><label id="label_iva"/>
+				<label value="Total:"/><label id="label_total"/>
+				</row>
+				<row>
+				<label value="Estado:"/>
+				<combobox disabled="true" autocomplete="true" id="cmb_estadopedido"><comboitem label="Pendiente"/><comboitem label="Realizado"/><comboitem label="Rechazado"/></combobox>
+				<button image="/Imagenes/Edit_EstadoPedidos.png" tooltip="editarestado" id="button_editar" label="" ></button>
+				</row>
+			</rows>
+		</grid>
+
+	<listbox id="listboxdetalleproductos" mold="paging" pageSize="5" width="100%" emptyMessage="No existen datos" >
+		<listhead sizable="true" menupopup="auto">
+		<listheader label="Producto" sort="auto(productos.nombre_producto)"/>
+			<listheader label="Cantidad" sort="auto(cantidad)"/>
+			<listheader label="Subtotal" sort="auto(subtotal)"/>
+			
+			</listhead>
+		
+			<template name="model"> 
+			<listitem value="${each}">
+				<listcell label="${each.productos.nombre_producto}" />
+				<listcell label="${each.cantidad}" />
+				<listcell label="${each.subtotal}" />
+			</listitem>
+		</template>
+		
+	</listbox>
+  		<groupbox >
+  		<button id="button_guardar" label="Guardar" disabled="true">
+		</button>
+		<space/>
+		<button label="Cancelar" onClick="win_DetallesPedidos.detach()">
+		</button>
+		</groupbox>
+		
+		<popup id="editarestado" width="140px"><html><![CDATA[Editar Estado Pedido.]]></html></popup>
+</window>
+</zk>

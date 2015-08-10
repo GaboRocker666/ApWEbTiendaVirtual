@@ -1,0 +1,63 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window border="none" width="75%" height="93%" id="winVerProducto" closable="true" apply="com.TiendaVirtual.controladores.VerProductoControlador">
+
+<borderlayout>
+<west autoscroll="true" title="Datos del Producto" width="40%" border="normal" >
+	<grid>	
+		<columns>
+				<column label="Etiqueta" />
+				<column label="Dato" />
+			</columns>
+			<rows>
+			
+			<row>
+			 <label value="Categoria:" />
+			<textbox id="txt_Categoria" >
+			</textbox>
+			</row>
+			
+			     <row>
+				  <label value="Nombre Producto:" />
+					<textbox id="textbox_Nombre_Producto"
+						constraint="no empty">
+					</textbox>
+				</row>
+				<row>
+					<label value="Descripción:" />
+					<textbox id="textbox_descripcion"
+						constraint="no empty">
+					</textbox>
+				</row>
+				<row id="rwSM">
+					<label value="Stock Minimo:" />
+					<textbox id="textbox_Stock_Minimo"
+						constraint="no empty">
+					</textbox>
+				</row>
+					<row id="rwSA">
+					<label value="Stock Actual:" />
+					<textbox id="textbox_Stock_Actual"
+						constraint="no empty">
+					</textbox>
+				</row>
+				<row id="rwPr">
+					<label value="Precio:        $" />
+					<textbox id="textbox_Precio"
+						constraint="no empty">
+					</textbox>
+				</row>
+				
+			</rows>
+	</grid>
+
+
+</west>
+
+<center id="centro" autoscroll="true">
+	<vlayout id="pics" height="99%" width="100%" style="overflow:auto" />
+</center>
+
+</borderlayout>
+</window>
+</zk>

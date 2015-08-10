@@ -1,0 +1,149 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Editar Usuario" border="normal" id="win_editarUsuario" closable="true" apply="com.TiendaVirtual.ModuloControlUsuarios.EditarElimarUsuariosControlador">
+ <toolbar id="toolOpciones">
+		<toolbarbutton image="/Imagenes/edit.png" id="toolbarbuttonEditar" label="Modificar"/>
+		<toolbarbutton image="/Imagenes/Usuarios/contrasena.GIF" id="toolbarbuttonContrasena" label="Cambiar Contraseña"/>
+		<toolbarbutton image="/Imagenes/delete.png" id="toolbarbuttonEliminar" label="Eliminar"/>
+	</toolbar>
+	
+	<groupbox id="gpb_buscar">
+		<caption label="Buscar"></caption>
+		<textbox id="textboxBuscar"></textbox>
+		<space/>
+		<button image="/Imagenes/searchs.png" id="buttonBuscar" label="Buscar">
+		</button>
+		<space/>
+		<button image="/Imagenes/icon_listat.png" id="buttonListar" label="Listar Todo"/>
+	</groupbox>
+	<groupbox id="gpb_lista">
+		<listbox id="listboxUsuarios" mold="paging" pageSize="3" width="100%" emptyMessage="No existen datos" >
+		<listhead sizable="true" menupopup="auto">
+			<listheader label="Apellidos" sort="auto(nombres)"/>
+			<listheader label="Apellidos" sort="auto(apellidos)"/>
+			<listheader label="Usuario" sort="auto(alias)"/>
+			<listheader label="Tipo de Usuario" sort="auto(DescripcionTU)"/>
+			<listheader label="Cédula" sort="auto(cedula)"/>
+		    <listheader label="Teléfono" sort="auto(telefono)"/>	
+		    <listheader label="Email" sort="auto(email)"/>
+		    <listheader label="Direccion" sort="auto(direccion)"/>
+		</listhead>
+		
+			<template name="model"> 
+			<listitem value="${each}">
+				<listcell label="${each.nombres}" />
+				<listcell label="${each.apellidos}" />
+				<listcell label="${each.alias}" />
+				<listcell label="${each.descripcionTU}" />
+				<listcell label="${each.cedula}" />
+				<listcell label="${each.telefono}" />
+				<listcell label="${each.email}" />
+				<listcell label="${each.direccion}" />
+			</listitem>
+		</template>
+		
+	</listbox>
+	</groupbox>
+	<grid id="grilla">
+
+		<rows>
+		    <row>	
+			<label value="Nombres:"></label>
+			<textbox id="txtNombres" constraint="no empty">
+			</textbox>
+			</row>	
+			
+			<row>	
+			<label value="Apellidos:"></label>
+			<textbox id="txtApellidos" constraint="no empty">
+			</textbox>
+			</row>	
+			
+			<row>	
+			<label value="Tipo Usuario:"></label>
+			<combobox id="cbbTipoUsuario" constraint="no empty" >
+				<template name="model">
+							<comboitem label="${each.descripcion}" value="${each.id_tipousuario}"/>
+				</template>
+			</combobox>
+			</row>
+			
+			<row>	
+			<label value="Cédula:"></label>
+			<textbox id="txtCedula"  constraint="no empty"/>
+			</row>
+			
+			<row>	
+			<label value="Teléfono:"></label>
+			<textbox id="txtTelefono"  constraint="no empty"/>
+			</row>	
+			
+			<row>	
+			<label value="Email:"></label>
+			<textbox id="txtEmail" />
+			</row>
+	        
+			<row>	
+			<label value="Direccion:"></label>
+			<textbox id="txtDireccion" constraint="no empty"/>
+			</row>
+			
+			<row>	
+			<button id="btnGuardarreU" label="Guardar">
+			</button>
+			
+			<button id="btnCancelarreU" label="Cancelar">
+			</button>
+			</row>
+			</rows>
+			
+			
+		</grid>
+		<grid id="grilla2">	
+		<rows>
+			<row>	
+			<label value="Usuario Administrador:"></label>
+			<textbox id="txtUsuario" constraint="no empty"/>
+			</row>	
+			
+			<row>	
+			<label value="Password:"></label>
+			<textbox id="txtPassword"  type="password" constraint="no empty"/>
+			</row>
+			<row>
+			<button id="btnAceptar" label="Aceptar">
+			</button>
+			<button id="btnCancelarreC" label="Cancelar">
+			</button>
+			</row>
+			
+		</rows>
+		</grid>
+		
+		<grid id="grilla3">	
+		<rows>
+		  <row>	
+			<label value="Usuario:"></label>
+			<textbox id="txtUsuarioedit"  constraint="no empty"/>
+			</row>
+			<row>
+			<label value="Nuevo Password:"></label>
+			<textbox id="txtNuevoPassword"  type="password" constraint="no empty"/>
+			</row>
+			<row>	
+			<label value="Confirmar Nuevo Password:"></label>
+			<textbox id="txtConfPassword" type="password" constraint="no empty"/>
+			</row>
+			
+			<row>	
+			<button id="btnGuardarre" label="Guardar">
+			</button>
+			
+			<button id="btnCancelarre" label="Cancelar">
+			</button>
+			</row>
+			
+		</rows>
+		</grid>
+</window>
+</zk>

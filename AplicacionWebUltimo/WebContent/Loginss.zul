@@ -1,0 +1,41 @@
+<?page title="Auto Generated index.zul"?>
+	<window title="Ingreso al sistema" border="normal" width="470px" id= "windlogin"
+		height="170px" position="center,center" mode="modal" apply="com.TiendaVirtual.ModuloControlSesion.LoginControlador">
+<borderlayout>
+		
+	<west width="30%"> 
+		<div>
+			<include src="htmls/Logo_Empresa.html"></include>
+		</div>
+			
+	</west>
+	<center id="centro" style="background:silver">
+			<grid height="100%">
+			<columns>
+				<column label="" />
+				<column label="" />
+			</columns>
+			<rows >
+			    <row >
+			    <label value="" />
+			    <label value="" />
+			    </row>
+				<row>
+					<label value="Usuario: " />
+					<textbox id="textbox_User" constraint="no empty" />
+				</row>
+				<row>
+					<label value="Clave: " />
+					<textbox id="textbox_Password" type="password" />
+				</row>
+				<row>
+					<button id="button_Ingresar" label="Ingresar" />
+					<button id="button_Cancelar" label="Cancelar" />
+				</row>
+			</rows>
+		</grid>
+	</center>
+	<south>
+	</south>
+</borderlayout>
+</window>

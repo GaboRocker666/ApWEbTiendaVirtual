@@ -1,0 +1,55 @@
+<?page title="Listar Productos" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Productos" border="normal" id="win_listarProductos" closable="true" apply="com.TiendaVirtual.controladores.ListaProductosControlador">
+	
+	<toolbar>
+<toolbarbutton image="/Imagenes/add.png" id="toolbarButtonNuevo" tooltip="nuevo"/>
+<toolbarbutton image="/Imagenes/edit.png" id="toolbarButtonEditar" tooltip="editar"/>
+<toolbarbutton image="/Imagenes/delete.png" id="toolbarButtonEliminacion" tooltip="eliminar"/>
+
+</toolbar>
+	
+		<groupbox closable="true">
+		<caption label="Busqueda"></caption>
+		<label>Nombre Producto: </label><textbox id="textboxBuscar"></textbox>
+		
+		<space/>
+		<button image="/Imagenes/searchs.png" id="buttonBuscar" label="Buscar">
+		</button>
+		<space/>
+		<button  image="/Imagenes/icon_listat.png" id="buttonBusca" label="Listar Todo">
+		</button>
+		<space/>
+	</groupbox>
+	<listbox id="listboxProductos" mold="paging" pageSize="5" width="100%" emptyMessage="No existen datos" >
+		<listhead sizable="true" menupopup="auto">
+		
+			<listheader label="Categoria" sort="auto(categoria.nom_categoria)"/>
+			<listheader label="Producto" sort="auto(nombre_producto)"/>
+			<listheader label="Descripcion" sort="auto(descripcion)"/>
+			<listheader label="Stock Minimo" sort="auto(stock_minimo)"/>
+			<listheader label="Stock Actual" sort="auto(stock_actual)"/>
+			<listheader label="Precio" sort="auto(precio)"/>
+			
+			
+			</listhead>		
+			<template name="model"> 
+			<listitem value="${each}">	
+			<listcell label="${each.categoria.nom_categoria}" />
+			<listcell label="${each.nombre_producto}" />	
+			<listcell label="${each.descripcion}" />	
+			<listcell label="${each.stock_minimo}" />	
+			<listcell label="${each.stock_actual}" />	
+			<listcell label="${each.precio}" />	
+			</listitem>
+		</template>		
+	</listbox>
+  	
+  	
+  	
+  	<popup id="nuevo" width="160px"><html><![CDATA[Agregar Nuevo Producto.]]></html></popup>
+  	<popup id="editar" width="115px"><html><![CDATA[Editar Producto.]]></html></popup>
+  	<popup id="eliminar" width="120px"><html><![CDATA[Eliminar Producto.]]></html></popup>
+		
+</window>
+</zk>
